@@ -29,14 +29,14 @@ namespace DonatorPerks.Commands
 							string arg = arguments.ElementAt(0).ToLower();
 							if (arg == "text")
 							{
-								if (arguments.Count == 2)
+								if (arguments.Count >= 2)
 								{
 									string badge = string.Empty;
 									for (int i = 1; i < arguments.Count; i++) badge += $"{arguments.ElementAt(i)} ";
 									badge = badge.Trim();
 									if (badge.Length > 32) badge = badge.Substring(0, 32);
 									Plugin.badgeOverrides[player.UserId].badge = badge;
-									player.GroupName = badge;
+									player.RankName = badge;
 									response = $"Your badge text has been updated to '{badge}'.";
 									return true;
 								}
